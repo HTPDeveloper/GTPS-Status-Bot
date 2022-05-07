@@ -1,0 +1,8 @@
+{
+ "token": "your token bot",
+ "player": "your folder player name",
+ "world": "your folder world name",
+ "guild": "your folder guild name",
+ "channel": "your channel id",
+ "exe_name": "Put your exe name"
+}
