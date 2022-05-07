@@ -17,3 +17,6 @@ Original Repo [here](https://github.com/ClayneID/GTPS-Server-Status-Bot)
 - Click install.bat to install packages
 - edit botconfig.json
 - press startbot.bat
+
+# Report a bug/error
+Dm me on discord **howtoplaygt#2898**
