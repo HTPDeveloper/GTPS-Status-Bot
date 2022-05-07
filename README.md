@@ -8,8 +8,8 @@ Original Repo [here](https://github.com/ClayneID/GTPS-Server-Status-Bot)
 
 
 # TO-DO
-. Add your exe file name to botconfig.json **(You do not need to change the exe name)**
-. at botconfig.json, put your token bot, channel id & players, worlds, guilds folder name on ur source files
+- Add your exe file name to botconfig.json **(You do not need to change the exe name)**
+- at botconfig.json, put your token bot, channel id & players, worlds, guilds folder name on ur source files
 
 # instruction
 - Download node.js [here](https://nodejs.org/en/download/)
