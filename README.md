@@ -12,8 +12,8 @@ Original Repo [here](https://github.com/ClayneID/GTPS-Server-Status-Bot)
 . at botconfig.json, put your token bot, channel id & players, worlds, guilds folder name on ur source files
 
 # instruction
-. Download node.js [here](https://nodejs.org/en/download/)
-. Download this repo
-. Click install.bat to install packages
-. edit botconfig.json
-. press startbot.bat
+- Download node.js [here](https://nodejs.org/en/download/)
+- Download this repo
+- Click install.bat to install packages
+- edit botconfig.json
+- press startbot.bat
