@@ -1,3 +1,6 @@
+# Fixing 
+- Embeds
+
 # GTPS-Status-Bot
 Update some stuff
 **gtps.zip** Is only for backup!
