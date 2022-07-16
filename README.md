@@ -1,5 +1,5 @@
 # Fixing 
-- Embeds
+- This project is currently not on process
 
 # GTPS-Status-Bot
 Update some stuff
