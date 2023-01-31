@@ -1,5 +1,6 @@
-# Fixing 
-- This project is currently not on process
+# Updates
+- Nodejs v13
+[I have stopped working on this project]
 
 # GTPS-Status-Bot
 Update some stuff
