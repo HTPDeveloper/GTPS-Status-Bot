@@ -23,4 +23,4 @@ Original Repo [here](https://github.com/ClayneID/GTPS-Server-Status-Bot)
 - press startbot.bat
 
 # Report a bug/error
-Dm me on discord **howtoplaygt#2898**
+Dm me on discord **howtoplay#2898**
