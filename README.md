@@ -8,7 +8,7 @@ Update some stuff
 
 # Credits
 Original Repo [here](https://github.com/ClayneID/GTPS-Server-Status-Bot)
-![Screenshot 2022-05-07 8 18 34 PM](https://user-images.githubusercontent.com/98792233/167254103-1e87acd2-2f26-4340-bace-6277490914ca.png)
+![Screenshot 2022-05-07 8 18 34 PM](blob:chrome-untrusted://media-app/61f23a11-8697-4121-a96d-2fab18f72d5a)
 
 
 # TO-DO
