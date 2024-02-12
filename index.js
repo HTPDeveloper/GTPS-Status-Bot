@@ -56,7 +56,7 @@ isRunning(config.exe_name, (status) => {
 	.setTimestamp()
 	.setFooter('Last Updated');
 	
-        msg.edit(statuszz);
+        msg.edit({ embed: [statuszz]});
 });
     }
     else
@@ -75,7 +75,7 @@ isRunning(config.exe_name, (status) => {
 	.setTimestamp()
 	.setFooter('Last Updated');
 	 
-         msg.edit(statusz);
+         msg.edit({ embed: [statusz]});
     }
 })
   }, 3000)
