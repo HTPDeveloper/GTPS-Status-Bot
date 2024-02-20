@@ -1,86 +1,82 @@
-/*
-* Coded by Clayne#5451
-* Helped by No#7777 & GuckTubeYT#3123
-* Fixed by howtoplaygt#2898
-*/
-const Discord = require('discord.js')
-var fs = require('fs');
-const config = require("./botconfig.json")
-const exec = require('child_process').exec;
+const { Client, Intents, MessageEmbed } = require('discord.js');
+const fs = require('fs');
+const { exec } = require('child_process');
 const lineReader = require('line-reader');
-const { Client, Intents } = require('discord.js');
+const randomColor = require('randomcolor');
+
+const config = require("./botconfig.json");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-var randomColor = require('randomcolor');
+
 const isRunning = (query, cb) => {
     let platform = process.platform;
     let cmd = '';
     switch (platform) {
-        case 'win32' : cmd = `tasklist`; break;
-        case 'darwin' : cmd = `ps -ax | grep ${query}`; break;
-        case 'linux' : cmd = `ps -A`; break;
+        case 'win32': cmd = `tasklist`; break;
+        case 'darwin': cmd = `ps -ax | grep ${query}`; break;
+        case 'linux': cmd = `ps -A`; break;
         default: break;
     }
     exec(cmd, (err, stdout, stderr) => {
         cb(stdout.toLowerCase().indexOf(query.toLowerCase()) > -1);
     });
 }
+
 client.on('ready', () => {
-  console.log(`${client.user.tag} Now Is Online!`)
-  client.user.setActivity('GT Private Server | Server Status', { type: 'WATCHING' });
+    console.log(`${client.user.tag} Now Is Online!`)
+    client.user.setActivity('GT Private Server | Server Status', { type: 'WATCHING' });
 
-  	const statusz = new Discord.MessageEmbed()
-	.setColor('#ff0000') // Default 
-	.setAuthor(`${guild.name}`)
-	.addField('*Server Status:**', '**DOWN**')
-	.addField('Players Online:', 'Please wait.')
-	.setTimestamp()
-	.setFooter('Last Updated');
+    const statusz = new MessageEmbed()
+        .setColor('#ff0000') // Default 
+        .setAuthor(`${client.user.username}`)
+        .addField('*Server Status:**', '**DOWN**')
+        .addField('Players Online:', 'Please wait.')
+        .setTimestamp()
+        .setFooter('Last Updated');
 
-    client.channels.cache.get(config.channel).send(statusz).then((msg)=> {
-  setInterval(function(){
-  	var color = randomColor();
-isRunning(config.exe_name, (status) => {
-    if (status == true) {
-    	lineReader.eachLine('onlineplayer.txt', function(line) {
-        const f1 = fs.readdirSync(config.player).length
-        const f2 = fs.readdirSync(config.world).length
-        const f3 = fs.readdirSync(config.guild).length
-        const statuszz = new Discord.MessageEmbed()
-	.setColor(color)
-	.setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
-	.addField('**Server Status:**', '**UP**')
-	.addField('**Players Online:**', line)
-	.addField('**Players File Count: **', f1)
-	.addField('**Worlds File Count: **', f2)
-        .addField('**Guilds File Count: **', f3)
-	.setTimestamp()
-	.setFooter('Last Updated');
-	
-        msg.edit({ embed: [statuszz]});
+    client.channels.cache.get(config.channel).send({ embeds: [statusz] }).then((msg) => {
+        setInterval(() => {
+            const color = randomColor();
+            isRunning(config.exe_name, (status) => {
+                if (status == true) {
+                    lineReader.eachLine('onlineplayer.txt', function (line) {
+                        const f1 = fs.readdirSync(config.player).length;
+                        const f2 = fs.readdirSync(config.world).length;
+                        const f3 = fs.readdirSync(config.guild).length;
+
+                        const statuszz = new MessageEmbed()
+                            .setColor(color)
+                            .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
+                            .addField('**Server Status:**', '**UP**')
+                            .addField('**Players Online:**', line)
+                            .addField('**Players File Count: **', f1)
+                            .addField('**Worlds File Count: **', f2)
+                            .addField('**Guilds File Count: **', f3)
+                            .setTimestamp()
+                            .setFooter('Last Updated');
+
+                        msg.edit({ embeds: [statuszz] });
+                    });
+                } else {
+                    const f1 = fs.readdirSync(config.player).length;
+                    const f2 = fs.readdirSync(config.world).length;
+                    const f3 = fs.readdirSync(config.guild).length;
+
+                    const statusz = new MessageEmbed()
+                        .setColor(color)
+                        .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
+                        .addField('**Server Status:**', '**DOWN**')
+                        .addField('**Players online:**', '0')
+                        .addField('**Players File Count: **', f1)
+                        .addField('**Worlds File Count: **', f2)
+                        .addField('**Guilds File Count: **', f3)
+                        .setTimestamp()
+                        .setFooter('Last Updated');
+
+                    msg.edit({ embeds: [statusz] });
+                }
+            })
+        }, 3000);
+    });
 });
-    }
-    else
-    {
-        const f1 = fs.readdirSync(config.player).length
-        const f2 = fs.readdirSync(config.world).length
-        const f3 = fs.readdirSync(config.guild).length
-        const statusz = new Discord.MessageEmbed()
-	.setColor(color)
-	.setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
-	.addField('**Server Status:**', '**DOWN**')
-	.addField('**Players online:**', '0')
-        .addField('**Players File Count: **', f1)
-	.addField('**Worlds File Count: **', f2)
-        .addField('**Guilds File Count: **', f3)
-	.setTimestamp()
-	.setFooter('Last Updated');
-	 
-         msg.edit({ embed: [statusz]});
-    }
-})
-  }, 3000)
-}); 
-})
 
-
-client.login(config.token)
+client.login(config.token);
