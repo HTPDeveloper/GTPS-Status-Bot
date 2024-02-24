@@ -47,10 +47,10 @@ client.on('ready', () => {
                             .setColor(color)
                             .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
                             .addField('**Server Status:**', '**UP**')
-                            .addField('**Players Online:**', line)
-                            .addField('**Players File Count: **', f1)
-                            .addField('**Worlds File Count: **', f2)
-                            .addField('**Guilds File Count: **', f3)
+                            .addField(`**Players Online:** ${line}`)
+                            .addField(`**Players File Count: ** ${f1}`, true)
+                            .addField(`**Worlds File Count: ** ${f2}`, true)
+                            .addField(`**Guilds File Count: ** ${f3}`, true)
                             .setTimestamp()
                             .setFooter('Last Updated');
 
@@ -65,10 +65,10 @@ client.on('ready', () => {
                         .setColor(color)
                         .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
                         .addField('**Server Status:**', '**DOWN**')
-                        .addField('**Players online:**', '0')
-                        .addField('**Players File Count: **', f1)
-                        .addField('**Worlds File Count: **', f2)
-                        .addField('**Guilds File Count: **', f3)
+                        .addField(`**Players online:** '0'`, true)
+                        .addField(`**Players File Count: ** ${f1}`, true)
+                        .addField(`**Worlds File Count: ** ${f2}`, true)
+                        .addField(`**Guilds File Count: ** ${f3}`, true)
                         .setTimestamp()
                         .setFooter('Last Updated');
 
