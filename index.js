@@ -47,7 +47,7 @@ client.on('ready', () => {
                             .setColor(color)
                             .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
                             .addField('**Server Status:**', '**UP**')
-                            .addField(`**Players Online:** ${line}`)
+                            .addField(`**Players Online:** ${line}`, true)
                             .addField(`**Players File Count: ** ${f1}`, true)
                             .addField(`**Worlds File Count: ** ${f2}`, true)
                             .addField(`**Guilds File Count: ** ${f3}`, true)
